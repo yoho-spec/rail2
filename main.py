@@ -17,7 +17,7 @@ from telegram.ext import (
 from config.settings import settings
 from database.mongodb import init_db
 from database.redis_client import init_redis
-from middleware.subscription_gate import check_subscription
+from middleware.subscription_gate import subscription_required
 from handlers.start import start_handler, help_handler
 from handlers.admin import admin_handler, add_premium_handler, test_mode_handler
 from utils.keep_alive import start_keep_alive
