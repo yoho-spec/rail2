@@ -69,3 +69,4 @@ class Settings:
 
 # Singleton — import this everywhere
 settings = Settings()
+
