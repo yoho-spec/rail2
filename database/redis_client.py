@@ -8,6 +8,7 @@ Redis (Upstash) connection — used for:
 """
 import logging
 import json
+import os
 from redis.asyncio import Redis
 from config.settings import settings
 
@@ -18,8 +19,14 @@ redis: Redis = None  # Import this everywhere: from database.redis_client import
 
 async def init_redis():
     global redis
+    # Debug: print the actual REDIS_URL value
+    redis_url = settings.REDIS_URL
+    logger.info(f"DEBUG: REDIS_URL = {redis_url}")
+    logger.info(f"DEBUG: REDIS_URL type = {type(redis_url)}")
+    logger.info(f"DEBUG: REDIS_URL length = {len(redis_url) if redis_url else 0}")
+    
     redis = Redis.from_url(
-        settings.REDIS_URL,
+        redis_url,
         decode_responses=True,
         socket_timeout=5,
         socket_connect_timeout=5,
@@ -97,3 +104,4 @@ async def dequeue_job(queue_name: str) -> dict | None:
 
 async def get_queue_length(queue_name: str) -> int:
     return await redis.llen(f"queue:{queue_name}")
+
