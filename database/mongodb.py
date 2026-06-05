@@ -27,6 +27,8 @@ async def init_db():
     _client = AsyncIOMotorClient(settings.MONGODB_URI)
     db = _client[settings.MONGODB_DB_NAME]
     await _create_indexes()
+    from database.schemas import create_indexes as create_schema_indexes
+    await create_schema_indexes(db)
     logger.info(f"✅ MongoDB connected → {settings.MONGODB_DB_NAME}")
 
 
