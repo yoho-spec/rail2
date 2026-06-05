@@ -1,0 +1,23 @@
+# Core
+python-telegram-bot==21.5
+telethon==1.36.0
+
+# Database
+motor==3.5.1
+pymongo==4.8.0
+redis==5.0.8
+
+# Utilities
+cryptography==43.0.1
+python-dotenv==1.0.1
+aiohttp==3.10.5
+
+# File storage
+cloudinary==1.40.0
+
+# AI features (Part 7)
+openai==1.45.0
+# libreTranslate is self-hosted — no pip package needed
+
+# Workers (Part 3+)
+celery==5.4.0

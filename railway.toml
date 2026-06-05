@@ -1,0 +1,13 @@
+# railway.toml
+# Railway reads this automatically from your repo root.
+# Defines build + start behavior for the bot service.
+
+[build]
+builder = "nixpacks"           # Railway's auto-builder — detects Python automatically
+
+[deploy]
+startCommand = "python main.py"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 5

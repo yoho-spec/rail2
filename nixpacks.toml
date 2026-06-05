@@ -1,0 +1,12 @@
+# nixpacks.toml
+# Tells Railway's builder which Python version to use
+# and how to install dependencies.
+
+[phases.setup]
+nixPkgs = ["python311", "gcc"]   # Python 3.11, gcc needed for some crypto packages
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[start]
+cmd = "python main.py"
