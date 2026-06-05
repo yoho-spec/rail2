@@ -3,7 +3,7 @@
 # Defines build + start behavior for the bot service.
 
 [build]
-builder = "nixpacks"           # Railway's auto-builder — detects Python automatically
+builder = "RAILPACK"
 
 [deploy]
 startCommand = "python main.py"
